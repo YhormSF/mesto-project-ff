@@ -14,7 +14,7 @@ export const createCard = (cardDetails, removeCard, openImage, like) => {
 
 // слушатель для открытия картинки-попапа
   images.addEventListener('click', () => {
-    openImage(cardDetails.link, cardDetails.name, cardDetails.alt)
+    openImage(cardDetails.link, cardDetails.name)
   }); 
 
 // слушатель для удаления картинки
