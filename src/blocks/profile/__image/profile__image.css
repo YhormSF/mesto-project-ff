@@ -1,3 +1,4 @@
+/* аватар пользователя */
 .profile__image {
   width: 120px;
   height: 120px;
@@ -7,6 +8,22 @@
   background-size: cover;
   background-position: center;
   margin: 0 29px 0 0;
+}
+
+/* картинка поверх аватарки */
+.profile__image-edit {
+  position: absolute;
+  z-index: 2;
+  width: 120px;
+  height: 120px;
+  background:  url('/src/images/Vector.png') center no-repeat;
+  opacity: 0;
+}
+
+/* картинка появляется при наведении курсором на аватар */
+.profile__image-edit:hover{
+  opacity: 1;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 740px) {

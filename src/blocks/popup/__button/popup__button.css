@@ -25,3 +25,13 @@
     line-height: 17px;
   }
 }
+
+/* стили для отключенной кнопки */
+.button_inactive {
+background: rgba(0, 0, 0, 0.15);
+}
+
+/* стили для кнопки в попапе подтверждения удаления */
+.popup_type_remove-card .popup__button {
+  margin-top: 0px;
+}
