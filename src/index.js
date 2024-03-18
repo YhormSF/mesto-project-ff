@@ -15,9 +15,7 @@ const imageCaption = popupImage.querySelector(".popup__caption"); // назва�
 
 // переменные для попапа "редактировать профиль"
 const popupEditProfile = document.querySelector(".popup_type_edit"); // сам попап "редактировать профиль"
-const openPopupButtonEditProfile = document.querySelector(
-  ".profile__edit-button"
-); //кнопка для открытия изменения профиля
+const openPopupButtonEditProfile = document.querySelector(".profile__edit-button"); //кнопка для открытия изменения профиля
 
 const profileName = document.querySelector(".profile__title"); // имя профиля на странице
 const profileJob = document.querySelector(".profile__description"); // деятельность профиля на странице
@@ -191,7 +189,7 @@ const addNewAvatar = (evt) => {
     .finally(() => {
       buttonSave.textContent = "Сохранить";
     });
-}
+};
 
 // слушатель открытия попапа "редактировать профиль"
 openPopupButtonEditProfile.addEventListener("click", () => {
