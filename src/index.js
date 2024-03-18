@@ -100,11 +100,11 @@ const handleFormSubmitProfile = (evt, popup) => {
     .then(() => {
       profileName.textContent = name;
       profileJob.textContent = job;
-      buttonSave.textContent = "Сохраненить";
+      buttonSave.textContent = "Сохранить";
     })
     .catch((err) => {
       console.log(err);
-      buttonSave.textContent = "Сохраненить";
+      buttonSave.textContent = "Сохранить";
     });
   closeModal(popup);
 };
