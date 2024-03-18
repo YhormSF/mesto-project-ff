@@ -10,6 +10,11 @@
   margin: 0 29px 0 0;
 }
 
+/* класс для аватарки с прозрачностью */
+.image-hover {
+opacity: 0.3;
+}
+
 /* картинка поверх аватарки */
 .profile__image-edit {
   position: absolute;
