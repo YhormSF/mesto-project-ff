@@ -27,7 +27,7 @@ export const createCard = (cardDetails,openImage,like,userId,preRemoveCard) => {
     deleteButton.addEventListener("click", () => {
     preRemoveCard(cardElement, cardId);
     });
-  }
+  };
 
   // слушатель кнопки лайка
   likeButton.addEventListener("click", () => {
@@ -66,7 +66,7 @@ export const removeCard = (cardElement, cardId, closeModal, popup, button) => {
       closeModal(popup);
     })
     .catch((err) => console.log(err));
-}
+};
 
 // Функция лайка, ставит или удаляет, в зависимости от класса на кнопке
 export const like = (likeButton, cardId, likeCountierElement) => {
@@ -77,4 +77,4 @@ likeMethod(cardId)
            likeButton.classList.toggle("card__like-button_is-active"); 
         })
 .catch(err => console.log(err));
-      }
+};

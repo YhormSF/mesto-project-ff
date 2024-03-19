@@ -1,7 +1,7 @@
 import "./pages/index.css"; // добавление стилей для вебпака
 import { createCard, removeCard, like } from "./components/card.js"; // импорт функций работы с карточками
 import { openModal, closeModal, closeOutModal } from "./components/modal.js"; // импорт функций открытия и закрытия модальных окон
-import { enableValidation, hideInputError, toggleButtonState } from "./components/validation.js"; // импорт валидации
+import { enableValidation, clearValidation } from "./components/validation.js"; // импорт валидации
 import { getInitialData, addNewProfileData ,addNewCardData, addNewAvatarData } from "./components/api.js"; // импорт API
 
 // DOM узлы:
@@ -134,19 +134,9 @@ const config = {
   buttonElement: ".popup__button"
 }
 
+
 // вызываем валидацию, передаем настройки
 enableValidation(config);
-
-// Функция для очистки ошибки и блокировки кнопки для слушателей открытия попапа
-export const clearValidation = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(config.inputElement));
-  const button = formElement.querySelector(config.buttonElement);
-  toggleButtonState(true, button);
-  inputList.forEach((inputElement) => {
-    hideInputError(formElement, inputElement);
-  });
-};
-
 
 // Функция добавления новой карточки
 const addNewCard = (evt) => {
@@ -195,7 +185,7 @@ const addNewAvatar = (evt) => {
 openPopupButtonEditProfile.addEventListener("click", () => {
   openModal(popupEditProfile);
   copyDataProfile();
-  clearValidation(editProfileForm);
+  clearValidation(editProfileForm, config);
 });
 
 // слушатель кнопки для сохранения новых данных профиля
@@ -206,7 +196,7 @@ editProfileForm.addEventListener("submit", (evt) =>
 // слушатель открытия попапа "новое место"
 openPopupNewCardButton.addEventListener("click", () => {
   openModal(popupNewCard);
-  clearValidation(newCardForm);
+  clearValidation(newCardForm, config);
   newCardForm.reset();
 });
 
@@ -223,15 +213,16 @@ updateAvatarForm.addEventListener("submit", (evt) => {
 // слушатель на элемент поверх аватарки при наведении курсором
 profileAvatarEdit.addEventListener("mouseover", () => {
   profileAvatar.classList.add('image-hover');
-  // слушатель на эдемент поверх аватарки при убирании курсора с нее
-  profileAvatarEdit.addEventListener("mouseout", () => {
-    profileAvatar.classList.remove('image-hover');
-  })
+});
+
+ // слушатель на эдемент поверх аватарки при убирании курсора с нее
+ profileAvatarEdit.addEventListener("mouseout", () => {
+  profileAvatar.classList.remove('image-hover');
 });
 
 // слушатель для открытия попапа "обновить аватар"
 profileAvatarEdit.addEventListener("click", () => {
   updateAvatarForm.reset();
-  clearValidation(updateAvatarForm);
+  clearValidation(updateAvatarForm, config);
   openModal(popupUpdateAvatar);
 });

@@ -59,7 +59,15 @@ export const toggleButtonState = (inputList, button) => {
   }
 };
 
-
+// Функция для очистки ошибки и блокировки кнопки для слушателей открытия попапа
+export const clearValidation = (formElement, config) => {
+  const inputList = Array.from(formElement.querySelectorAll(config.inputElement));
+  const button = formElement.querySelector(config.buttonElement);
+  toggleButtonState(true, button);
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement);
+  });
+};
 
 // Функция для перебора всех форм на странице
 export const enableValidation = (config) => {
